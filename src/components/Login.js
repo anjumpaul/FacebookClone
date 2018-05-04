@@ -1,57 +1,92 @@
-  import React,{Component} from 'react';
-  import { StyleSheet, Text, View ,TouchableHighlight,TextInput} from 'react-native';
-  // import LoginHeader from './LoginHeader';
-   // import Newsfeed from './Newsfeed';
-   import { StackNavigator,} from 'react-navigation';
+import React,{Component} from 'react';
+import { StyleSheet,
+    Text,
+     View ,
+     TouchableHighlight,
+     TextInput,
+     AsyncStorage,
+      Keyboard} from 'react-native';
+// import LoginHeader from './LoginHeader';
+// import Newsfeed from './Newsfeed';
+import { StackNavigator,} from 'react-navigation';
 
-  export default class Login extends Component {
-    constructor(){
-      super()
-      this.state={ username : '',
-                    password :''}
+export default class Login extends Component {
+  constructor(){
+    super()
+    this.state={ uname : '',
+    password :''}
+  }
+  static navigationOptions = {
+    header:null,
+  }
+  // async componentDidMount(){
+
+    // try {
+    //   await AsyncStorage.setItem('@MyStore:key', this.state.username);
+    // }
+    // catch (error) {
+    // }
+  // }
+  login = async ()=>{
+    // try {
+    //   await AsyncStorage.setItem('@MyStore:key', this.state.username);
+    // }
+    // catch (error) {
+    // }
+    let credentials = await AsyncStorage.getItem('credentials');
+    let d = JSON.parse(credentials);
+    // alert(d.name+' '+d.uname);
+      Keyboard.dismiss();
+    if(this.state.uname===d.uname && this.state.password===d.password){
+      return(
+         this.props.navigation.navigate('Newsfeed',{name:uname})
+      )
     }
-    static navigationOptions = {
-      header:null,
+    else{
+      return(alert('incorrect password or username'))
     }
-    render() {
 
+}
+  render() {
 
-      return (
-        <View style={styles.container}>
-          <Text style={styles.text}>Facebook</Text>
-          <TextInput
-            underlineColorAndroid='transparent'
-            style={styles.input}
-            value={this.state.username}
-            onChangeText={(text) => this.setState({ username: text })}
-            placeholder={'User Name'}
-            maxLength={20}
-            multiline={false}
+    return (
+      <View style={styles.container}>
+        <Text style={styles.text}>Facebook</Text>
+        <TextInput
+          underlineColorAndroid='transparent'
+          style={styles.input}
 
-          />
-           <TextInput
-             underlineColorAndroid='transparent'
-            style={styles.input2}
-            value={this.state.password}
-            onChangeText={(text) => this.setState({ password: text })}
-            placeholder={'Password'}
-            type='password'
-            maxLength={20}
-            multiline={false}
-          />
-          <TouchableHighlight
-            style={styles.button}
-            underlayColor={'#328FE6'}
-             onPress={() =>
-               this.props.navigation.navigate('Newsfeed')
-             }
-            >
-              <Text style={styles.label}>LOGIN</Text>
-            </TouchableHighlight>
-            <Text style={styles.signup} onPress={() =>
-              this.props.navigation.navigate('Signup')
-            } >SignUp?</Text>
-          </View>
+           onChangeText={(uname) => this.setState({ uname })}
+           // value={this.state.uname}
+          placeholder={'User Name'}
+          maxLength={20}
+          multiline={false}
+
+        />
+        <TextInput
+          underlineColorAndroid='transparent'
+          style={styles.input2}
+
+           onChangeText={(password) => this.setState({ password })}
+           // value={this.state.password}
+          placeholder={'Password'}
+          type='password'
+          maxLength={20}
+          multiline={false}
+          secureTextEntry={true}
+        />
+        <TouchableHighlight
+          style={styles.button}
+          underlayColor={'#328FE6'}
+          onPress= {this.login}
+
+          >
+            <Text style={styles.label}>LOGIN</Text>
+          </TouchableHighlight>
+          <Text style={styles.signup} onPress={() =>
+            this.props.navigation.navigate('Signup')
+          } >SignUp?</Text>
+        </View>
       );
     }
   }

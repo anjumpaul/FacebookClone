@@ -1,10 +1,10 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View,AsyncStorage} from 'react-native';
 import {StackNavigation,} from 'react-navigation';
 import Footbar from './Footbar.js';
 import {MaterialIcons,Feather} from '@expo/vector-icons'
 export default class Profile extends React.Component {
-  static navigationOptions = {
+  static navigationOptions = (props) => ({
     title :'Profile',
     headerRight: (
   <Feather
@@ -16,7 +16,7 @@ export default class Profile extends React.Component {
     }
     />
 ),
-  }
+})
   render() {
      const { navigate } = this.props.navigation;
     return (
