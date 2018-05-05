@@ -39,13 +39,12 @@ export default class Login extends Component {
       Keyboard.dismiss();
     if(this.state.uname===d.uname && this.state.password===d.password){
       return(
-         this.props.navigation.navigate('Newsfeed',{name:uname})
+         this.props.navigation.navigate('Newsfeed',{name:this.state.uname})
       )
     }
     else{
       return(alert('incorrect password or username'))
     }
-
 }
   render() {
 

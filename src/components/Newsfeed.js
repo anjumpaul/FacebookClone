@@ -34,15 +34,24 @@ export default class Newsfeed extends Component {
     const { navigate } = this.props.navigation;
     return (
       <View>
-        <Text>hello this.props.navigation.state.name</Text>
+        <Text style={styles.text}>Welcome
+          <Text style={styles.textname}>{this.props.navigation.state.params.name}</Text>
+        </Text>
         <Footbar navigation={navigate}/>
       </View>
     );
   }
 }
-// const styles = StyleSheet.create({
-//   power:{
-//     color:'black',
-//     fontSize:30,
-//   }
-// });
+const styles = StyleSheet.create({
+  text:{
+    color:'black',
+    fontSize:20,
+    padding:10,
+  },
+  textname:{
+    color:'#6A1B9A',
+    fontSize:30,
+    padding:10,
+    marginLeft:50,
+  },
+});

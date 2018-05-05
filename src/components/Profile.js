@@ -17,6 +17,11 @@ export default class Profile extends React.Component {
     />
 ),
 })
+async componentDidMount(){
+  let credentials = await AsyncStorage.getItem('credentials');
+  let d = JSON.parse(credentials);
+   // alert(d.name+' '+d.uname);
+}
   render() {
      const { navigate } = this.props.navigation;
     return (

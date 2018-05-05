@@ -3,6 +3,7 @@ import { StyleSheet, Text, View} from 'react-native';
 import {StackNavigation,} from 'react-navigation';
 import {Entypo,Feather} from '@expo/vector-icons'
 export default class Footbar extends Component {
+
   render() {
       // const { navigate } = this.props.navigation;
     return (
@@ -33,7 +34,7 @@ export default class Footbar extends Component {
 const styles = StyleSheet.create({
   container:{
     flexDirection:"row",
-    marginTop:420,
+    marginTop:400,
     alignItems:'center',
     borderBottomWidth:20,
     borderBottomColor:'#0D47A1',
