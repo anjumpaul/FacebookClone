@@ -34,7 +34,7 @@ export default class Footbar extends Component {
 const styles = StyleSheet.create({
   container:{
     flexDirection:"row",
-    marginTop:400,
+     marginTop:400,
     alignItems:'center',
     borderBottomWidth:20,
     borderBottomColor:'#0D47A1',
@@ -45,21 +45,21 @@ const styles = StyleSheet.create({
      marginLeft:60,
     textAlign:'center',
     padding:10,
-    fontSize:40,
+    fontSize:30,
     color:"white"
   },
   feather:{
 
     marginLeft:30,
     padding:10,
-    fontSize:40,
+    fontSize:30,
     color:"white",
   },
   featherSettings:{
     marginRight:20,
     marginLeft:60,
     padding:10,
-    fontSize:40,
+    fontSize:30,
     color:"white",
   }
 });
