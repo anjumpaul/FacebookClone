@@ -34,9 +34,12 @@ export default class Footbar extends Component {
 const styles = StyleSheet.create({
   container:{
     flexDirection:"row",
-     marginTop:400,
-    alignItems:'center',
-    borderBottomWidth:20,
+    // flex:1,
+    // position:'absolute',
+    //  bottom:0,
+     // marginTop:400,
+    // alignItems:'center',
+    borderBottomWidth:30,
     borderBottomColor:'#0D47A1',
     backgroundColor:'#0D47A1',
 

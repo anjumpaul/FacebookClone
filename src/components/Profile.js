@@ -25,7 +25,7 @@ async componentDidMount(){
   render() {
      const { navigate } = this.props.navigation;
     return (
-      <View>
+      <View style={{flex:1}}>
       <Text>welcome</Text>
       <Footbar navigation={navigate}/>
     </View>

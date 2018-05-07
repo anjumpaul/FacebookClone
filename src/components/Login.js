@@ -58,6 +58,7 @@ export default class Login extends Component {
            onChangeText={(uname) => this.setState({ uname })}
            // value={this.state.uname}
           placeholder={'User Name'}
+          required="required"
           maxLength={20}
           multiline={false}
 

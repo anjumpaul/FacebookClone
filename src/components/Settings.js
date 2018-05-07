@@ -21,7 +21,7 @@ export default class Settings extends React.Component {
   render() {
     const { navigate } = this.props.navigation;
     return (
-      <View>
+      <View style={{flex:1}}>
       <Text>jfu</Text>
       <Footbar navigation={navigate}/>
     </View>
